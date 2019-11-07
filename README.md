@@ -40,11 +40,24 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+Relational databases are databases that make use of a collection of tables, a 'relation' being a mathematical representation of a database table. SQL is the language most commonly used to query
+relational databases.
+
 - [ ] Why do tables need a `primary key`?
+
+In order to fit standard rules of data normalization, database entries should be unique - the primary key ensures this. It also allows us to index our data in order to search through it more quickly, and permits table joins.
+
+The requirement of the primary key is enforced by the First Normal Form property, which states that
+tables should have a primary key in order to avoid repetition and permit joins.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+Foreign key.
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+
+Say that we have a cars table, and a features table. One car could have many features, and one feature could belong to more than one car. These tables would then be an example of a many-to-many
+relationship, since the relationship between them is such that a member of either table can be related to several of the other.
 
 ## Minimum Viable Product
 
