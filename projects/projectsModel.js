@@ -20,6 +20,10 @@ function getProjectTasksByProjectId(id) {
     return db('tasks').where({ project_id: id});
 }
 
+function getTaskContextsByTaskId() {
+    return db('tasks_contexts');
+}
+
 function getProjectsById(id) {
     return db('projects').where({ id });
 }
@@ -47,6 +51,7 @@ module.exports = {
     getTasks,
     getTasksById,
     getProjectTasksByProjectId,
+    getTaskContextsByTaskId,
     getResourcesByProjectId,
     createProject,
     createTask,

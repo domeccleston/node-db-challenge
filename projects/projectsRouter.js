@@ -24,7 +24,10 @@ projectsRouter.get("/tasks", async (req, res) => {
 projectsRouter.get("/tasks/:id", async (req, res) => {
     try {
         const tasks = await Projects.getTasksById(req.params.id);
-        res.json(tasks);
+        const contexts = await Projects.getTaskContextsByTaskId();
+        res.json({
+            tasks
+        });
     } catch (error) {
         res.json(error)
     }
