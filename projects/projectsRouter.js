@@ -36,4 +36,14 @@ projectsRouter.post("/projects", async (req, res) => {
     }
 })
 
+projectsRouter.post("/tasks", async (req, res) => {
+    try {
+        const task = await Projects.createTask(req.body);
+        res.json({ message: "task created successfully", task: req.body})
+    } catch (error) {
+        res.json(error)
+    }
+})
+
+
 module.exports = projectsRouter;
