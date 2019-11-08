@@ -12,6 +12,15 @@ projectsRouter.get("/projects", async (req, res) => {
     }
 });
 
+projectsRouter.get("/tasks", async (req, res) => {
+    try {
+        const tasks = await Projects.getTasks();
+        res.json(tasks);
+    } catch (error) {
+        res.json(error)
+    }
+});
+
 projectsRouter.get("/projects/:id", async (req, res) => {
     try {
         const projects = await Projects.getProjectsById(req.params.id);
@@ -40,6 +49,15 @@ projectsRouter.post("/tasks", async (req, res) => {
     try {
         const task = await Projects.createTask(req.body);
         res.json({ message: "task created successfully", task: req.body})
+    } catch (error) {
+        res.json(error)
+    }
+})
+
+projectsRouter.put("/:entity/:id", async (req, res) => {
+    try {
+        const updatedEntity = await Projects.updateEntity(req.params.id, req.params.entity, req.body);
+        res.json({ message: `${req.params.entity} successfully updated`, content: req.body})
     } catch (error) {
         res.json(error)
     }

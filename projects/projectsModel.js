@@ -4,6 +4,10 @@ function getProjects() {
     return db('projects');
 }
 
+function getTasks() {
+    return db('tasks');
+}
+
 function getTasksById(id) {
     return db('tasks').where({ id });
 }
@@ -28,17 +32,18 @@ function createTask(newTask) {
     return db('tasks').insert(newTask);
 }
 
-function updateTask(id, task) {
-    return db('tasks').where({ id }).update(task);
+function updateEntity(id, entity, content) {
+    return db(`${entity}`).where({ id }).update(content);
 }
 
 
 module.exports = {
     getProjects,
     getProjectsById,
+    getTasks,
     getProjectTasksByProjectId,
     getResourcesByProjectId,
     createProject,
     createTask,
-    updateTask,
+    updateEntity,
 }
