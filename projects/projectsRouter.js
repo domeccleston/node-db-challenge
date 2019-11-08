@@ -27,4 +27,13 @@ projectsRouter.get("/projects/:id", async (req, res) => {
     }
 });
 
+projectsRouter.post("/projects", async (req, res) => {
+    try {
+        const project = await Projects.createProject(req.body);
+        res.json({ message: "project created successfully", project: req.body})
+    } catch (error) {
+        res.json(error)
+    }
+})
+
 module.exports = projectsRouter;
