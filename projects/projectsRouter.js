@@ -63,5 +63,14 @@ projectsRouter.put("/:entity/:id", async (req, res) => {
     }
 })
 
+projectsRouter.delete("/:entity/:id", async (req, res) => {
+    try {
+        const deletedEntity = await Projects.deleteEntity(req.params.id, req.params.entity);
+        res.json({ message: `${req.params.entity} successfully deleted`, deleteCount: deletedEntity})
+    } catch (error) {
+        res.json(error)
+    }
+})
+
 
 module.exports = projectsRouter;

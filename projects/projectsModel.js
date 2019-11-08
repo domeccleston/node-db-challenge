@@ -36,6 +36,10 @@ function updateEntity(id, entity, content) {
     return db(`${entity}`).where({ id }).update(content);
 }
 
+function deleteEntity(id, entity) {
+    return db(`${entity}`).where({ id }).del();
+}
+
 
 module.exports = {
     getProjects,
@@ -46,4 +50,5 @@ module.exports = {
     createProject,
     createTask,
     updateEntity,
+    deleteEntity,
 }
