@@ -21,6 +21,15 @@ projectsRouter.get("/tasks", async (req, res) => {
     }
 });
 
+projectsRouter.get("/tasks/:id", async (req, res) => {
+    try {
+        const tasks = await Projects.getTasksById(req.params.id);
+        res.json(tasks);
+    } catch (error) {
+        res.json(error)
+    }
+});
+
 projectsRouter.get("/projects/:id", async (req, res) => {
     try {
         const projects = await Projects.getProjectsById(req.params.id);

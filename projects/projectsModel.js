@@ -45,6 +45,7 @@ module.exports = {
     getProjects,
     getProjectsById,
     getTasks,
+    getTasksById,
     getProjectTasksByProjectId,
     getResourcesByProjectId,
     createProject,
