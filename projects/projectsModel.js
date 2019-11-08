@@ -21,7 +21,7 @@ function getProjectTasksByProjectId(id) {
 }
 
 function getTaskContextsByTaskId() {
-    return db('tasks_contexts');
+    return db('task_contexts');
 }
 
 function getProjectsById(id) {
